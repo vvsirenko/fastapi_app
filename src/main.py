@@ -4,7 +4,7 @@ from fastapi.exceptions import ValidationError
 from fastapi.encoders import jsonable_encoder
 from starlette.responses import JSONResponse
 
-from operations.router import router as router_operation
+from src.data import router as data_router
 
 app = FastAPI(title="test app")
 
@@ -16,7 +16,7 @@ async def vadation_exeption_handler(request: Request, exc: ValidationError):
         content=jsonable_encoder({"detail": exc.errors()})
     )
 
-app.include_router(router_operation)
+app.include_router(data_router.router)
 
 
 if __name__ == "__main__":
