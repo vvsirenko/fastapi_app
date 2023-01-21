@@ -8,7 +8,6 @@ from src.data import router as data_router
 
 app = FastAPI(title="test app")
 
-
 @app.exception_handler(ValidationError)
 async def vadation_exeption_handler(request: Request, exc: ValidationError):
     return JSONResponse(
@@ -20,4 +19,4 @@ app.include_router(data_router.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("src.main:app", host="127.0.0.1", port=8000, reload=True)
