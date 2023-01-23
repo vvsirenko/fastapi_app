@@ -1,15 +1,13 @@
 import sys
 
-import uvicorn
+# import uvicorn
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import ValidationError
 from fastapi.encoders import jsonable_encoder
 from starlette.responses import JSONResponse
 
-sys.path.append("/Users/elena/PycharmProjects/fastapi_app")
-
-
-from src.data import router as data_router
+# sys.path.append("/Users/elena/PycharmProjects/fastapi_app")
+from app.data import router as data_router
 
 app = FastAPI(title="test app")
 
@@ -23,5 +21,5 @@ async def vadation_exeption_handler(request: Request, exc: ValidationError):
 app.include_router(data_router.router)
 
 
-if __name__ == "__main__":
-    uvicorn.run("src.main:app", host="0.0.0.0", port=8000, reload=True)
+# if __name__ == "__main__":
+#     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

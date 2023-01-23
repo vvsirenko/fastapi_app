@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from src.data import database as data_database
-from src.data import schemas as data_schemas
+from app.data import database as data_database
+from app.data import schemas as data_schemas
 
 router = APIRouter(
     prefix="/users",
